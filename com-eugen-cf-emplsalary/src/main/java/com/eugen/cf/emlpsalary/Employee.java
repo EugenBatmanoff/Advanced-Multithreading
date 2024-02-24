@@ -13,10 +13,6 @@ public class Employee {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public double getSalary() {
         return salary;
     }

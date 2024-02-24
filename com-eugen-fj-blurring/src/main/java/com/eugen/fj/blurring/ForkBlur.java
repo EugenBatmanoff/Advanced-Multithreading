@@ -6,7 +6,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.Objects;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
 
@@ -30,8 +29,10 @@ public class ForkBlur extends RecursiveAction {
     // Plumbing follows.
     public static void main(String[] args) throws Exception {
         String srcName = "/red-tulips.png";
-        InputStream is = ForkBlur.class.getResourceAsStream(srcName);
-        BufferedImage image = ImageIO.read(Objects.requireNonNull(is));
+        BufferedImage image;
+        try (InputStream is = ForkBlur.class.getResourceAsStream(srcName)) {
+            image = ImageIO.read(is);
+        }
         BufferedImage blurredImage = blur(image);
         System.out.println("blurredImage width: " + blurredImage.getWidth());
         System.out.println("blurredImage height: " + blurredImage.getHeight());
@@ -56,7 +57,7 @@ public class ForkBlur extends RecursiveAction {
         System.out.println("Threshold is " + sThreshold);
 
         int processors = Runtime.getRuntime().availableProcessors();
-        System.out.println(Integer.toString(processors) + " processor"
+        System.out.println(processors + " processor"
                 + (processors != 1 ? "s are " : " is ")
                 + "available");
 
