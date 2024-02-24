@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/com-eugen-factorial/pom.xml" />
+        <option value="$PROJECT_DIR$/com-eugen-fjp-quicksort/pom.xml" />
+        <option value="$PROJECT_DIR$/com-eugen-fjp-filescan/pom.xml" />
+        <option value="$PROJECT_DIR$/com-eugen-cf-hired-employees/pom.xml" />
+        <option value="$PROJECT_DIR$/com-eugen-production-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/com-eugen-rt-fibonacci/pom.xml" />
+        <option value="$PROJECT_DIR$/com-eugen-ra-sumofsquares/pom.xml" />
+        <option value="$PROJECT_DIR$/com-eugen-fj-blurring/pom.xml" />
+        <option value="$PROJECT_DIR$/com-eugen-cf-emplsalary/pom.xml" />
+        <option value="$PROJECT_DIR$/com-eugen-producer-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/com-eugen-producerconsumer/pom.xml" />
+      </list>
+    </option>
+    <option name="workspaceImportForciblyTurnedOn" value="true" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" default="true" project-jdk-name="corretto-15" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>
