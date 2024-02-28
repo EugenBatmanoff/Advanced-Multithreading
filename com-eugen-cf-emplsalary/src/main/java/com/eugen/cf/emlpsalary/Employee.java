@@ -1,7 +1,15 @@
 package com.eugen.cf.emlpsalary;
 
 public class Employee {
-     private String id;
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id='" + id + '\'' +
+                ", salary=" + salary +
+                '}';
+    }
+
+    private String id;
     private double salary;
 
     public Employee(String id, double salary) {

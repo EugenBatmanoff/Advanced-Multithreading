@@ -2,6 +2,7 @@ package com.eugen.cf.emlpsalary;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 
 /**
  * Hello world!
@@ -12,17 +13,13 @@ public class Main {
         EmployeeService service = new EmployeeService();
 
         CompletableFuture<List<Employee>> employeesFuture = service.hiredEmployees();
+        employeesFuture.thenApplyAsync(employees ->
+                employees.stream()
+                        .map(employee -> employee.toString())
+                        .collect(Collectors.toList())
+        ).thenAccept(employeeStrings -> {
+            employeeStrings.forEach(System.out::println);
+        }).join();
 
-        CompletableFuture<Void> allSalariesFilled = employeesFuture.thenCompose(employees -> {
-
-            return CompletableFuture.allOf(employees.stream()
-                    .map(employee -> service.getSalary(employee.getId())
-                            .thenAccept(employee::setSalary)).toArray(CompletableFuture[]::new));
-        });
-
-        allSalariesFilled.thenAccept(v -> {
-            List<Employee> employees = employeesFuture.join();
-            employees.forEach(employee -> System.out.println("Employee ID: " + employee.getId() + ", Salary: " + employee.getSalary()));
-        });
     }
 }
